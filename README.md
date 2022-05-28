@@ -21,31 +21,32 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - _TODO: What does Filebeat watch for?_
 - _TODO: What does Metricbeat record?_
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-
+| Name     | Function | IP Address   | Operating System |
+|----------|----------|--------------|------------------|
+|Jump-Box-
+Provisioner| Gateway  | 10.0.0.1     |  Linux           |
+|Web1 Japan| webserver|52.140.192.229| Linux            |
+|Web2 Japan| webserver|52.140.192.229| Linux            |
+|ELK-SERVER| kibana   |40.74.90.236  | Linux            |
+|Red-TeamLB| LB       |52.140.192.229| DVWA             |
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
-
-Machines within the network can only be accessed by _____.
+Only the Jump-Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- _TODO: 40.74.90.236
+         10.0.0.1
+Machines within the network can only be accessed by SSH.
 - _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
 
 A summary of the access policies in place can be found in the table below.
@@ -72,10 +73,12 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- _TODO: Web1-Japan: 52.140.192.229
+         Web2-Japan: 52.140.192.229
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- _TODO: Filebeat
+         Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
